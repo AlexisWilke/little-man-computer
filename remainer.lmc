@@ -1,0 +1,29 @@
+
+start    LDA zero # reset
+         STA ANSWER
+         INP
+         STA DIVIDEND
+         INP
+         STA DIVISOR
+LOOP     LDA DIVIDEND
+         BRZ END
+         SUB DIVISOR
+         BRP continue # No negative overflow
+         LDA zero # Tell user there is a remainder
+         OUT
+         BRA start # ... and ask for new inputs
+continue STA DIVIDEND
+         LDA ANSWER
+         ADD INC
+         STA ANSWER
+         BRA LOOP
+END      LDA ANSWER
+         OUT
+         HLT
+
+DIVIDEND DAT
+DIVISOR  DAT
+ANSWER   DAT
+INC      DAT 1
+zero     DAT 0
+
