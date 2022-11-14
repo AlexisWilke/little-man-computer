@@ -1,7 +1,7 @@
 
 # Compile
 
-On Ubuntu, you shoudl have no problem with:
+On Ubuntu, you should have no problem with:
 
     ./build
 
